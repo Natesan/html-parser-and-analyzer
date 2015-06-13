@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/contentscript.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h3 id="mainTitle">HTML Parser and Documentor</h3>
+    <h4 id="subTitle">Select the HTML tags that are to be fetched from the current browser context and documented(.xls format)</h4>
+
+    <div id="elementsSelected" class="btn-group" data-toggle="buttons-checkbox">
+        <div>
+            <button type="button" class="btn btn-info" value="H1">H1</button>
+            <button type="button" class="btn btn-info" value="H2">H2</button>
+            <button type="button" class="btn btn-info" value="H3">H3</button>
+            <button type="button" class="btn btn-info" value="H4">H4</button>
+            <button type="button" class="btn btn-info" value="H5">H5</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-info" value="P">P</button>
+            <button type="button" class="btn btn-info" value="A">A</button>
+            <button type="button" class="btn btn-info" value="IMG">IMG</button>
+        </div>
+    </div>
+
+    <div id="ExportClass">
+        <button id="btnExport" class="btn btn-success">Export</button>
+    </div>
+
+    <div id="tableData" style="display:none"></div>
+</body>
+
+</html>

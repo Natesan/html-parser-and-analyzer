@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+
+    "name": "HTML Parser and Documenter",
+    "version": "1.0",
+
+    "description": "Analyse the HTML of the current browser context fetch the xCode for the selected html elements",
+    "icons": {
+        "128": "icon.png"
+    },
+
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "HTML Parser and Documenter",
+        "default_popup": "popup.html"
+    },
+
+    "content_scripts": [
+        {
+            "matches": ["*://*/*"],
+            "js": ["js/jquery-1.11.3.min.js", "js/getPagesSource.js"]
+        }
+    ],
+
+    "permissions": ["*://*/*"]
+}
