@@ -12,18 +12,15 @@ chrome.extension.onMessage.addListener(function (request, sender) {
             var node = nodeList[i];
             for (var prop in node) {
                 if (node.hasOwnProperty(prop)) {
-                    console.log("Property : " + prop);
                     if (prop == 'attributes' && node["attributes"] != null) {
                         tableContent += '<td>';
                         for (var attr in node["attributes"]) {
-                            console.log(attr + ":" + node["attributes"][attr])
                             tableContent += attr + ':' + node["attributes"][attr] + '<br/>';
                         }
                         tableContent += '</td>';
                     } else if (prop == 'content' || prop == 'type') {
                         tableContent += '<td>' + node[prop] + '</td>';
                     } else {
-                        console.log(prop + ":" + node[prop]);
                         tableContent += '<td></td>';
                     }
                     var Aid = 'id',
@@ -43,15 +40,13 @@ chrome.extension.onMessage.addListener(function (request, sender) {
             }
             tableContent += '</tr>';
         }
-        console.log(tableContent);
         table.append(tableContent);
         $('#tableData').append(table);
     }
-
 });
 
 
-var config = [];
+
 
 function onWindowLoad() {
 
@@ -85,4 +80,5 @@ function onWindowLoad() {
 
 }
 
+var config = [];
 window.onload = onWindowLoad;

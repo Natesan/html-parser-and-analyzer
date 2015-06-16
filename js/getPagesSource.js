@@ -1,5 +1,5 @@
 function DOMtoString(document_root, config) {
-    console.log(config);
+    
     var initElement = document_root.getElementsByTagName("html")[0];
     var json = mapDOM(initElement, true);
     var arr = JSON.parse(json);
@@ -16,13 +16,11 @@ function DOMtoString(document_root, config) {
                 objects = objects.concat(getObjects(obj[i], key, val));
             } else if (i == key && jQuery.inArray(obj[key], val) > -1) {
                 objects.push(obj);
-                console.log(obj[key]);
-                //console.log(obj["content"][0]);
-                if (obj["attributes"] != null) {
+                /*if (obj["attributes"] != null) {
                     for (var att in obj["attributes"]) {
                         console.log(att + ": " + obj["attributes"][att]);
                     }
-                }
+                }*/
             }
         }
         return objects;
@@ -76,8 +74,10 @@ function DOMtoString(document_root, config) {
         return (json) ? JSON.stringify(treeObject) : treeObject;
     }
 }
+if (typeof(config) == undefined) 
+    window.config = [];
 
 chrome.extension.sendMessage({
     action: "getSource",
-    source: DOMtoString(document, config)
+    source: DOMtoString(document, window.config)
 })
